@@ -1,6 +1,15 @@
-@CampusBenchApi_HostAddress = http://localhost:5107
+@CampusBenchApi_HostAddress = https://localhost:63174
 
 GET {{CampusBenchApi_HostAddress}}/weatherforecast/
 Accept: application/json
+
+###
+
+POST {{CampusBenchApi_HostAddress}}/api/order
+Content-Type: application/json
+
+{
+ //order
+}
 
 ###
