@@ -47,7 +47,9 @@ namespace CampusBenchApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutOrder(int id, Order order)
         {
-           
+            _context.Entry(order).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return NoContent();
         }
 
         // POST: api/Order
@@ -55,7 +57,9 @@ namespace CampusBenchApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
-           
+            _context.Orders.Add(order);
+            await _context.SaveChangesAsync();
+            return order;
         }
 
         // DELETE: api/Order/5
